@@ -22,9 +22,9 @@ public class PPMImageUtil implements ImageDecoder, ImageEncoder {
 
   public void encodeImage(FloatImage image, ImageHeader header, OutputStream os) throws IOException {
     PrintWriter writer = new PrintWriter(os);
-    writer.println("P6");
-    writer.println(image.getWidth() + " " + image.getHeight());
-    writer.println("255");
+    writer.print("P6\n");
+    writer.print(image.getWidth() + " " + image.getHeight() + "\n");
+    writer.print("255\n");
     writer.flush();
     float[] pels = image.getData();
     byte[] raw = new byte[image.getWidth() * image.getHeight() * 3];
